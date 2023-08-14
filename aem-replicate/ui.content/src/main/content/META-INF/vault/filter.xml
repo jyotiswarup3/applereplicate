@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/apple-replicate" mode="merge"/>
+    <filter root="/content/apple-replicate" mode="merge"/>
+    <filter root="/content/dam/apple-replicate" mode="merge">
+        <exclude pattern="/content/dam/apple-replicate(/.*)?"/>
+        <include pattern="/content/dam/apple-replicate/jcr:content(/.*)?"/>
+    </filter>
+    <filter root="/content/dam/apple-replicate/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/apple-replicate" mode="merge"/>
+</workspaceFilter>
