@@ -3,5 +3,5 @@
     jcr:primaryType="cq:Component"
     jcr:title="List"
     sling:resourceSuperType="core/wcm/components/list/v3/list"
-    teaserDelegate="apple-replicate/components/teaser"
-    componentGroup="Replicate Apple - Content"/>
+    componentGroup="Replicate Apple - Content"
+    teaserDelegate="apple-replicate/components/teaser"/>

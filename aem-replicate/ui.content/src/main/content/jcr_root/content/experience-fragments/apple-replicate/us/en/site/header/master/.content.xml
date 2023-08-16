@@ -29,6 +29,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="apple-replicate/components/search"
                 searchRoot="/content/apple-replicate/us"/>
+            <logo/>
         </root>
     </jcr:content>
 </jcr:root>
