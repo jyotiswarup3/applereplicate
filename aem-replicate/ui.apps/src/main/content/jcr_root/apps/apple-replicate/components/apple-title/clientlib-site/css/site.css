@@ -1,0 +1,28 @@
+.as-page-title{	
+    /* width: 980px; */
+    word-wrap: break-word;
+    text-align: center;
+	}	
+.row{-webkit-box-direction: normal;
+	display: flex;
+    }
+.justify-content-center{
+	-webkit-box-pack: center;
+	justify-content: center;
+	}
+.column{
+	margin: 0;
+    padding: 0;
+    min-width: 0px;
+	}
+.large-11{
+	flex-basis: 91.66667%;
+    max-width: 91.66667%;
+	}
+.typography-headline-elevated{
+    line-height: 1.0625;
+    font-weight: 600;
+    letter-spacing: -0.009em;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	color: #1d1d1f;
+	}

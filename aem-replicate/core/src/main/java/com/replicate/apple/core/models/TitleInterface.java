@@ -1,7 +1,7 @@
 package com.replicate.apple.core.models;
 
-public class TitleInterface {
+public interface TitleInterface {
 
-    private String getText;
+    String getText();
     
 }
