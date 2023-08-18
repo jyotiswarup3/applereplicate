@@ -12,11 +12,29 @@ public class TitleImplements implements TitleInterface{
 
     @Inject
     private String text;
+
+    @Inject
+    private int margintop;
+    
+    @Inject
+    private int fontsize;
     
     @Override
     public String getText() {
 
         return text;
+    }
+
+    @Override
+    public int getMarginTop() {
+
+        return margintop;
+    }
+
+    @Override
+    public int getFontSize() {
+
+        return fontsize;
     }
 
     

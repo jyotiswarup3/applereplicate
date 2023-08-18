@@ -1,12 +1,12 @@
 <sly data-sly-test="${wcmmode.edit}">Title Component</sly>
 
-<div class="as-page-title "  data-sly-use.model="com.replicate.apple.core.models.TitleInterface" >
-			<div class="row justify-content-center" style="margin-top: 68px;">
+<div class="as-page-title "  data-sly-use.model="com.replicate.apple.core.models.TitleInterface" style="margin-top:${model.marginTop @ context='styleToken'}px;">
+			<div class="row justify-content-center">
         		<div class="column large-11 medium-11 small-12">
-                    <h1 class="as-page-title__heading typography-headline-elevated" style="font-size: 64px;">${model.text}</h1></div>
+                    <h1 class="as-page-title__heading typography-headline-elevated" style="font-size:${model.fontSize @ context='styleToken'}px;">${model.text}</h1></div>
         	</div>
     	</div>
-		
+
 
 <sly data-sly-use.clientlib="core/wcm/components/commons/v1/templates/clientlib.html">
     <sly data-sly-call="${clientlib.css @ categories='apple-replicate-title'}"/>
