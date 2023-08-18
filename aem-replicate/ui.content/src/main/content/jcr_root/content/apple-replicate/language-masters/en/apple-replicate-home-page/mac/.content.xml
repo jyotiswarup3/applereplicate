@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-08-18T11:59:55.429+05:30"
+        cq:lastModified="{Date}2023-08-18T20:18:25.739+05:30"
         cq:lastModifiedBy="admin"
         cq:template="/conf/apple-replicate/settings/wcm/templates/child-page"
         jcr:primaryType="cq:PageContent"
@@ -19,18 +19,24 @@
                 <apple_imagegrid
                     jcr:created="{Date}2023-08-18T11:19:56.503+05:30"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2023-08-18T11:59:55.428+05:30"
+                    jcr:lastModified="{Date}2023-08-18T20:18:25.736+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="apple-replicate/components/apple-imagegrid"
-                    imagegridtile="imagegrid">
+                    imagegridtile="gridtile">
                     <imagegrid jcr:primaryType="nt:unstructured">
                         <item0
                             jcr:primaryType="nt:unstructured"
-                            alt="aaaa"
-                            caption="aaaa"
+                            alt="Alt Text 1"
+                            caption="caption 1"
                             fileReference="/content/dam/apple-replicate/apple-replicate/tile-topic-password_2x.svg"
-                            linkURL="aaa"/>
+                            linkURL="this is the link  1"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            alt="Alt Text 2"
+                            caption="caption 2"
+                            fileReference="/content/dam/apple-replicate/apple-replicate/image-grid-watch-_2x.png"
+                            linkURL="this is the link 2"/>
                     </imagegrid>
                 </apple_imagegrid>
             </container>

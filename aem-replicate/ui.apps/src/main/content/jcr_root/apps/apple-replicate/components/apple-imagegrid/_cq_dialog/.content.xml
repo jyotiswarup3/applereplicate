@@ -68,6 +68,37 @@
                                     </columns>
                                 </items>
                             </column>
+                            <option
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Option"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <columns
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <radiogroupoption
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/radiogroup"
+                                                name="./imagegridtile"
+                                                text="Option">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <imgegrid
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/radio"
+                                                        text="1. Image-Grid"
+                                                        value="imagegrid"/>
+                                                    <gridtile
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/radio"
+                                                        text="2. Grid-Tile"
+                                                        value="gridtile"/>
+                                                </items>
+                                            </radiogroupoption>
+                                        </items>
+                                    </columns>
+                                </items>
+                            </option>
                         </items>
                     </tabs>
                 </items>

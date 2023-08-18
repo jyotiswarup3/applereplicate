@@ -12,7 +12,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Store"
-        jcr:uuid="3b0e415b-bc38-4860-8531-f25795986040"
+        jcr:uuid="e3d03d40-785a-4da4-9265-ae2efbc711ba"
         sling:resourceType="apple-replicate/components/page">
         <root
             jcr:primaryType="nt:unstructured"
