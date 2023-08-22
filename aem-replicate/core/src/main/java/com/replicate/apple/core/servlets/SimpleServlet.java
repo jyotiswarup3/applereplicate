@@ -18,6 +18,7 @@ package com.replicate.apple.core.servlets;
 import com.day.cq.commons.jcr.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.request.RequestParameter;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
@@ -29,6 +30,7 @@ import org.osgi.service.component.propertytypes.ServiceDescription;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Servlet that writes some sample content into the response. It is mounted for
@@ -39,18 +41,43 @@ import java.io.IOException;
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
         resourceTypes="apple-replicate/components/page",
-        methods=HttpConstants.METHOD_GET,
+        methods={ HttpConstants.METHOD_GET,HttpConstants.METHOD_POST},
+        selectors = "selectors",
         extensions="txt")
 @ServiceDescription("Simple Demo Servlet")
-public class SimpleServlet extends SlingSafeMethodsServlet {
+public class SimpleServlet extends SlingAllMethodsServlet {
 
     private static final long serialVersionUID = 1L;
+    String variable;
 
     @Override
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
         final Resource resource = req.getResource();
+        List <RequestParameter> reqparam=req.getRequestParameterList();
+        for (RequestParameter requestParameter : reqparam) {
+        resp.getWriter().write("We are in doGet \n"+requestParameter.getName()+"----------"+requestParameter.toString()+"        ");
+
+        }
+        this.variable=reqparam.get(0).toString();
+
         resp.setContentType("text/plain");
         resp.getWriter().write("Title = " + resource.getValueMap().get(JcrConstants.JCR_TITLE));
     }
+
+    @Override
+    protected void doPost(final SlingHttpServletRequest req,
+            final SlingHttpServletResponse resp) throws ServletException, IOException {
+
+              List <RequestParameter> reqparam=req.getRequestParameterList();
+
+              for (RequestParameter requestParameter : reqparam) {
+                resp.getWriter().write("We are in doPost \n"+requestParameter.getName()+"----------"+requestParameter.toString()+"        ");
+              }
+
+            resp.getWriter().write("\n\n\n\n\nWe are in doPost \n and the Search value is :  "+variable);
+
+
+
+            }
 }

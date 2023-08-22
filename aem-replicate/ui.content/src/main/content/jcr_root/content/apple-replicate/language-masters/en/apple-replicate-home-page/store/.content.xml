@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2023-08-18T03:20:46.378+05:30"
+        cq:lastModified="{Date}2023-08-22T13:21:12.158+05:30"
         cq:lastModifiedBy="admin"
         cq:lastReplicated="{Date}2023-08-17T17:27:29.764+05:30"
         cq:lastReplicatedBy="admin"
@@ -12,7 +12,7 @@
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="Store"
-        jcr:uuid="e3d03d40-785a-4da4-9265-ae2efbc711ba"
+        jcr:uuid="3b0e415b-bc38-4860-8531-f25795986040"
         sling:resourceType="apple-replicate/components/page">
         <root
             jcr:primaryType="nt:unstructured"
@@ -25,13 +25,47 @@
                 <apple_title
                     jcr:created="{Date}2023-08-18T02:42:50.942+05:30"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2023-08-18T03:20:46.376+05:30"
+                    jcr:lastModified="{Date}2023-08-18T23:21:07.804+05:30"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="apple-replicate/components/apple-title"
-                    fontsize="64"
-                    margintop="60"
+                    fontsize="32"
+                    margintop="21"
                     text="Apple Support"/>
+                <apple_formcomponent
+                    jcr:created="{Date}2023-08-22T03:58:59.117+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-22T03:58:59.117+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-formcomponent"/>
+                <apple_title_769900105
+                    jcr:created="{Date}2023-08-22T13:20:12.469+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-22T13:20:25.757+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-title"
+                    fontsize="12"
+                    margintop="12"
+                    text="Men"/>
+                <apple_imagegrid
+                    jcr:created="{Date}2023-08-22T13:20:49.786+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-22T13:21:12.156+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-imagegrid"
+                    imagegridtile="gridtile">
+                    <imagegrid jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            alt="men"
+                            caption="Men"
+                            fileReference="/content/dam/apple-replicate/apple-replicate/tile-split-getsupport.image.large_2x.png"
+                            linkURL="women"/>
+                    </imagegrid>
+                </apple_imagegrid>
             </container>
         </root>
     </jcr:content>

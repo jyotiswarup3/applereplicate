@@ -1,0 +1,35 @@
+<div data-sly-test="${!wcmmode==disabled}">
+  <div style="text-align: center">Search component</div>
+</div>
+
+<form
+  style="margin-top: 14px; margin-bottom: 45px; position: relative"
+  action="/content/apple-replicate/language-masters/en/search-page/jcr:content/root/container/apple_formcomponent"
+>
+  <!--action="${currentPage.path}.html"-->
+
+  <input
+    autocomplete="on"
+    type="text"
+    name="id"
+    id="name"
+    class="search"
+    placeholder="Search Support"
+    value=""
+  />
+
+  <button
+    class="as-search-form-submit form-icons form-icons-search15 clickable"
+    type="submit"
+    aria-label="Submit"
+    onclick="myFunction()"
+    style="opacity: 1"
+  ></button>
+</form>
+
+<p id="demo"></p>
+
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.css @ categories='apple-search'}"
+/>

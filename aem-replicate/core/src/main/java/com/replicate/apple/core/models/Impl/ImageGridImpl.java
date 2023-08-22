@@ -1,4 +1,5 @@
 package com.replicate.apple.core.models.Impl;
+
 import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -8,8 +9,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import com.replicate.apple.core.models.ImageGridInterface;
 
-
-@Model(adaptables=Resource.class, adapters=ImageGridInterface.class)
+@Model(adaptables = Resource.class, adapters = ImageGridInterface.class)
 public class ImageGridImpl implements ImageGridInterface {
 
     @ChildResource(name = "imagegrid")
@@ -20,7 +20,11 @@ public class ImageGridImpl implements ImageGridInterface {
 
     @Override
     public Boolean getOption() {
-        if (imagegridtile.equals("imagegrid")) {return true;} else {return false;}
+        if (imagegridtile.equals("imagegrid")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -30,8 +34,7 @@ public class ImageGridImpl implements ImageGridInterface {
 
     @PostConstruct
     protected void init() {
-      imagegrid = CollectionUtils.emptyIfNull(this.imagegrid);
+        imagegrid = CollectionUtils.emptyIfNull(this.imagegrid);
     }
 
-    
 }

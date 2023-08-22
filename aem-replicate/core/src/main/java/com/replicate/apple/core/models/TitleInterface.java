@@ -7,5 +7,5 @@ public interface TitleInterface {
     int getMarginTop();
 
     int getFontSize();
-    
+
 }

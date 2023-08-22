@@ -1,12 +1,12 @@
-<h1>This is ImageGrid </h1> 
+<h1>This is ImageGrid </h1>
 
 <div data-sly-use.model="com.replicate.apple.core.models.ImageGridInterface">
-<div data-sly-list.item="${model.imageGrid}" style="text-align: center;">
-    
-    ${item.getAlt}</br>
-    ${item.getCaption}</br>
-    ${item.getFileReference}</br>
-    ${item.getLinkURL}</br>
+    <div data-sly-list.item="${model.imageGrid}" style="text-align: center;">
 
-</div>
+        ${item.getAlt}</br>
+        ${item.getCaption}</br>
+        ${item.getFileReference}</br>
+        ${item.getLinkURL}</br>
+
+    </div>
 </div>

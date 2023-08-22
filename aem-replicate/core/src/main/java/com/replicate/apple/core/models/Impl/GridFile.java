@@ -9,28 +9,30 @@ public class GridFile {
 
     @ValueMapValue(name = "alt")
     private String alt;
-  
+
     @ValueMapValue(name = "caption")
     private String caption;
 
     @ValueMapValue(name = "fileReference")
     private String fileReference;
-  
+
     @ValueMapValue(name = "linkURL")
     private String linkURL;
-
 
     public String getAlt() {
         return this.alt;
     }
+
     public String getCaption() {
         return this.caption;
     }
+
     public String getFileReference() {
         return this.fileReference;
     }
+
     public String getLinkURL() {
         return this.linkURL;
     }
-    
+
 }

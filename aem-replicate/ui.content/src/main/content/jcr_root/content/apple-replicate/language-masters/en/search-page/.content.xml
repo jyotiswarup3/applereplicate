@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-23T03:08:02.899+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/apple-replicate/settings/wcm/templates/home-page"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Search "
+        sling:resourceType="apple-replicate/components/page"
+        text="xyz">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="apple-replicate/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="apple-replicate/components/container"
+                layout="responsiveGrid">
+                <apple_title
+                    jcr:created="{Date}2023-08-22T23:59:50.061+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-23T00:00:21.163+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-title"
+                    fontsize="22"
+                    margintop="12"
+                    text="Its the Search Page"/>
+                <apple_formcomponent
+                    jcr:created="{Date}2023-08-23T00:00:33.196+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-23T00:00:33.196+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-formcomponent"/>
+                <apple_form_search_re
+                    jcr:created="{Date}2023-08-23T02:38:53.877+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-23T03:08:02.893+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="apple-replicate/components/apple-form-search-reciever-component"
+                    text="Apple Support"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

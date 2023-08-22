@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 
-<sly data-sly-test="${wcmmode.edit}" > <p style="text-align: center;">Image Grid</p></sly>
+<sly data-sly-test="${wcmmode.edit}">
+  <p style="text-align: center">Image Grid</p>
+</sly>
 
 <div data-sly-use.model="com.replicate.apple.core.models.ImageGridInterface">
-
-<div data-sly-test="${model.option}" style="text-align: center;">
-<div data-sly-include="imagegrid.html"></div></div>
-<div data-sly-test="${!model.option}" style="text-align: center;"><div data-sly-include="gridtile.html"></div></div>
+  <div data-sly-test="${model.option}" style="text-align: center">
+    <div data-sly-include="imagegrid.html"></div>
+  </div>
+  <div data-sly-test="${!model.option}" style="text-align: center">
+    <div data-sly-include="gridtile.html"></div>
+  </div>
 </div>
-
