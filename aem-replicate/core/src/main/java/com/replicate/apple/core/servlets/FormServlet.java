@@ -43,6 +43,7 @@ public class FormServlet extends SlingAllMethodsServlet {
       try {
         object.put("Page path", pages.getPath());
         object.put("Page Title:  ", pages.getTitle());
+        
         newarArray.put(object);
       } catch (JSONException e) {
         // TODO Auto-generated catch block
@@ -63,7 +64,7 @@ public class FormServlet extends SlingAllMethodsServlet {
     Page page = resource.adaptTo(PageManager.class)
         .getPage("/content/apple-replicate/language-masters/en/apple-replicate-home-page");
     Iterator<Page> childpage = page.listChildren();
-
+        
     JSONArray newarArray = new JSONArray();
     while (childpage.hasNext()) {
       Page pages = childpage.next();
@@ -72,6 +73,7 @@ public class FormServlet extends SlingAllMethodsServlet {
         object.put("Page path", pages.getPath());
         object.put("Page Title:  ", pages.getTitle());
         object.put("apple", "project");
+        logger.info(pages.getDescription());
         newarArray.put(object);
       } catch (JSONException e) {
         // TODO Auto-generated catch block

@@ -67,10 +67,13 @@ public class SearchServlet extends SlingSafeMethodsServlet {
       for (Map<String, String> string : set) {
         JSONObject object = new JSONObject();
         object.put("Page path", string.get("path"));
+        object.put("Page Description", string.get("description"));
         newarArray.put(object);
       }
       resp.setContentType("application/json");
       resp.getWriter().write(newarArray.toString());
+
+      resp.sendRedirect("/content/apple-replicate/language-masters/en/search-page.html?id="+req.getRequestParameter("id").getString());
 
     } catch (Exception e) {
     }
