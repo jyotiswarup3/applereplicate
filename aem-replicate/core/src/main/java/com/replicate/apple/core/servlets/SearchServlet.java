@@ -8,10 +8,12 @@ import java.util.Map;
 
 import javax.jcr.Session;
 import javax.servlet.Servlet;
+
 import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +22,7 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.replicate.apple.core.service.SearchService;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -28,13 +31,19 @@ import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 
 @Component(service = Servlet.class)
-@SlingServletResourceTypes(resourceTypes = "apple-replicate/components/apple-formcomponent", methods = {
+@SlingServletResourceTypes(resourceTypes = "apple-replicate/components/page", methods = {
     HttpConstants.METHOD_GET }
 
 )
+// : resource type : apple-replicate/components/apple-formcomponent
+// @SlingServletPaths(
+// value ="/content/apple-replicate/language-masters/en/search-page.html"
+// )
 
 public class SearchServlet extends SlingSafeMethodsServlet {
 
+  @Reference
+  SearchService searchService;
   private static final Logger log = LoggerFactory.getLogger(SearchServlet.class);
 
   @Override
@@ -44,43 +53,71 @@ public class SearchServlet extends SlingSafeMethodsServlet {
       ResourceResolver resourceResolver = req.getResourceResolver();
       Session session = resourceResolver.adaptTo(Session.class);
       String searchtext = req.getRequestParameter("id").getString();
-      // resp.setContentType("text/plain");
-      // resp.getWriter().write("Input Search word is: " + searchtext);
-      List<String> set = getResult(searchtext, session, resourceResolver);
-      // resp.setContentType("text/html");
-      // resp.getWriter().write("Search Result = " + " \n" + set);
+
+      List<Map<String, String>> set = getResult(searchtext, session, resourceResolver);
+
+      searchService.setListResults(set);
+
+      for (Map<String, String> string : set) {
+        log.info("Title " + string.get("title") + " \n path" + string.get("path"));
+      }
+      // path to send it to the searchService
+
       JSONArray newarArray = new JSONArray();
-      for (String string : set) {
+      for (Map<String, String> string : set) {
         JSONObject object = new JSONObject();
-        object.put("Page path", string);
+        object.put("Page path", string.get("path"));
         newarArray.put(object);
       }
       resp.setContentType("application/json");
       resp.getWriter().write(newarArray.toString());
+
     } catch (Exception e) {
     }
 
   }
 
-  public List<String> getResult(String param, Session session, ResourceResolver resourceResolver) {
+  public List<Map<String, String>> getResult(String searchtext, Session session, ResourceResolver resourceResolver) {
     List<String> resultSet = new ArrayList<String>();
+    List<Map<String, String>> resultsMap = new ArrayList<>();
+
     QueryBuilder builder = resourceResolver.adaptTo(QueryBuilder.class);
     try {
       Map<String, String> map = new HashMap<String, String>();
+      map.put("fulltext", searchtext);
       map.put("group.1_path", "/content/apple-replicate");
       map.put("group.2_path", "/apps/apple-replicate");
       map.put("group.p.or", "true");
-      map.put("fulltext", param);
+      map.put("type", "cq:Page");
+      map.put("orderby", "@jcr:content/cq:lastModified");
+      map.put("orderby.sort", "desc");
       map.put("p.limit", "-1");
+      map.put("p.hits", "selective");
+      map.put("p.properties", "jcr:content/jcr:title");
+
       Query query = builder.createQuery(PredicateGroup.create(map), session);
       SearchResult searchResult = query.getResult();
       if (searchResult != null) {
-        for (Hit hit : searchResult.getHits())
-          resultSet.add(hit.getPath());
+        for (Hit hit : searchResult.getHits()) {
+          Map<String, String> resultmap = new HashMap<>();
+          resultmap.put("title", hit.getResource().getValueMap().get("jcr:content/jcr:title", String.class));
+          resultmap.put("path", hit.getPath());
+          resultmap.put("description",
+              hit.getResource().getValueMap().get("jcr:content/jcr:description", String.class));
+          resultmap.put("modifieddate",
+              hit.getResource().getValueMap().get("jcr:content/cq:lastModified", String.class));
+
+          resultsMap.add(resultmap);
+
+          resultSet
+              .add("\n Title is: " + hit.getResource().getValueMap().get("jcr:content/jcr:title", String.class)
+                  + "\n Path is:  "
+                  + hit.getPath());
+        }
       }
     } catch (Exception e) {
     }
-    return resultSet;
+    return resultsMap;
 
   }
 

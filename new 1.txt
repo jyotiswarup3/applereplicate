@@ -1,21 +1,5 @@
-<form
-  method="POST" 
-  action="/jyoti/swarup"  
-  style="margin-top: 14px; margin-bottom: 45px; position: relative"
-> 
-<!-- action="${currentPage.path}/_jcr_content.selectors.txt"   resorce TYPE SERVLET WITH SIMPLE SERVELET IN BACKEND -->
-  <input type="text" name="searchname" id="name" class="search" placeholder="Search Support" />
-  <button
-    class="as-search-form-submit form-icons form-icons-search15 clickable"
-    type="submit"
-    aria-label="Submit"
-    style="opacity: 1"
-  ></button>
-</form>
-
-
-
-<sly
-  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-  data-sly-call="${clientlib.css @ categories='apple-search'}"
-/>
+step1 : Create the query in Query builder
+step2-create a service and write a search feature using query builder API
+		step a:
+		
+step3-map it with a servlet to search dynamic Text

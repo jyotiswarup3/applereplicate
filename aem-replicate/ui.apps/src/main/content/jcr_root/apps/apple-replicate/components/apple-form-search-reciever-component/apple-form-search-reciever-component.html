@@ -1,1 +1,32 @@
-apple form reciever component
+<style>
+div {
+  max-width: 980px;
+    margin: 0 auto;
+    font: inherit;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+a.path{
+  color:darkslategrey;
+}
+a:hover{
+  color: lightblue;
+}
+span.date{
+  color: gray;
+}
+</style>
+
+<sly data-sly-test="${wcmmode.edit}"
+  ><div style="text-align: center">Search Receiver Component</div></sly
+>
+<div class="cmp_search" data-sly-use.model="com.replicate.apple.core.models.SearchModel"></div>
+<div data-sly-list.item="${model.results}">
+  <p>no: ${itemList.count}</p>
+  <div><strong> <a href="${item.path}.html">${item.title}</a></strong></div>
+  <div><span class="date">${item.modifieddate}</span> &emsp;<span>${item.description}</span> </div></br>
+  <div><a class="path" href="${item.path}.html" >${item.path}</a></div></br>
+  
+</div>
