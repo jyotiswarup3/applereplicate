@@ -3,8 +3,7 @@
 </sly>
 
 <div data-sly-use.var="com.replicate.apple.core.models.Navigation">
-  <div style="text-align: center" data-sly-test="${var.path }">${var.path}</div>
+  <div style="text-align: center" data-sly-list.model="${var.path }">
+    <a href="${model.path}.html">${model.title} </a><br />
+  </div>
 </div>
-
-
-

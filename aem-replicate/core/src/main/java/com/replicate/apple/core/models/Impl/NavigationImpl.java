@@ -1,12 +1,17 @@
 package com.replicate.apple.core.models.Impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,23 +28,35 @@ public class NavigationImpl implements Navigation {
   @OSGiService
   ResourceResolverFactory resourceResolverFactory;
 
-  String title;
+  List<Map<String, String>> childPageList = new ArrayList<>();
 
   @Override
-  public String getPath() {
+  public List<Map<String, String>> getPath() {
     // TODO Auto-generated method stub
 
     try {
       ResourceResolver resolver = Resolverutil.newResolver(resourceResolverFactory);
       PageManager pageManager = resolver.adaptTo(PageManager.class);
       Page page = pageManager.getPage("/content/apple-replicate/language-masters/en/apple-replicate-home-page");
-      this.title = page.getTitle().toString();
+      Iterator<Page> pagelist = page.listChildren();
+
+      while (pagelist.hasNext()) {
+        Map<String, String> pageDetails = new HashMap<>();
+        Page trialpage = pagelist.next();
+        pageDetails.put("title", trialpage.getTitle().toString());
+        pageDetails.put("path", trialpage.getPath().toString());
+        childPageList.add(pageDetails);
+
+      }
+      return childPageList;
+
     } catch (LoginException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
 
-    return "value" + title;
+    return null;
+
   }
 
 }

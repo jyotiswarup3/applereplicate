@@ -3,8 +3,6 @@ package com.replicate.apple.core.utils;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.osgi.service.component.annotations.Reference;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +11,6 @@ import java.util.Map;
 public final class Resolverutil {
 
   private Resolverutil() {
-    
-
 
   }
 
@@ -25,7 +21,7 @@ public final class Resolverutil {
    * @return new resource resolver for Sony service user
    * @throws LoginException if problems
    */
-  public static  ResourceResolver newResolver(ResourceResolverFactory resourceResolverFactory) throws LoginException {
+  public static ResourceResolver newResolver(ResourceResolverFactory resourceResolverFactory) throws LoginException {
     final Map<String, Object> paramMap = new HashMap<String, Object>();
     // created a map object
 
